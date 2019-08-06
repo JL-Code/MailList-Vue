@@ -1,12 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <!-- <router-view /> -->
+    <!-- <login @close="close"></login> -->
   </div>
 </template>
+<script>
+import login from "./views/login";
+import componentAsync from "./components/component-async";
+export default {
+  components: { login },
+  methods: {
+    close (data) {
+      console.log(data);
+    }
+  },
+  async mounted () {
+    let data = await componentAsync(login);
+    console.log("async mounted：", data);
+  }
+};
+</script>
 
 <style lang="less">
 #app {
