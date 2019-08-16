@@ -15,7 +15,7 @@ export default function(component, options = {}, cb) {
       components: { embedded: component },
       data() {
         return {
-          visible: true
+          visible: false
         };
       },
       methods: {

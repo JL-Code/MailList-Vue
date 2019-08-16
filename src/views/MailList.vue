@@ -1,5 +1,7 @@
 <template>
-  <div style="background:#f7f7f7;height:100vh;width100vw;padding-top:20px;box-sizing:border-box">
+  <div
+    style="background:#f7f7f7;height:100vh;width100vw;padding-top:20px;box-sizing:border-box"
+  >
     <div class="mail-list-container">
       <div class="mail-list-aside">
         <div class="mail-list-panel mail-list-panel_full">
@@ -27,13 +29,10 @@
                       class="list-cell__icon"
                       :src="user.Avatar"
                     ></el-avatar>
-                    <el-avatar
-                      v-else
-                      class="list-cell__icon"
-                    >
-                      {{user.Name.substr(-3)}}
-                    </el-avatar>
-                    <span>{{user.Name}}</span>
+                    <el-avatar v-else class="list-cell__icon">{{
+                      user.Name.substr(-3)
+                    }}</el-avatar>
+                    <span>{{ user.Name }}</span>
                   </div>
                 </el-checkbox>
               </el-checkbox-group>
@@ -47,32 +46,24 @@
               >
               </el-input>
             </el-popover>
-
           </div>
           <div class="mail-list-panel-bd">
             <div class="selected-user">
               <el-tag
                 class="selected-user__item"
-                v-for="(user,index) in checkedUsers"
+                v-for="(user, index) in checkedUsers"
                 :key="index"
                 type="info"
                 effect="plain"
                 closable
                 disable-transitions
                 @click="handleClose(user.ID)"
+                >{{ user.Name }}</el-tag
               >
-                {{user.Name}}
-              </el-tag>
             </div>
           </div>
-          <div
-            class="mail-list-panel-ft"
-            style="text-align:left"
-          >
-            <el-button
-              type="primary"
-              size="medium"
-            >确定</el-button>
+          <div class="mail-list-panel-ft" style="text-align:left">
+            <el-button type="primary" size="medium">确定</el-button>
             <el-button size="medium">取&nbsp;消</el-button>
           </div>
         </div>
@@ -82,22 +73,17 @@
         <div class="mail-list-panel">
           <div class="mail-list-panel-hd">
             <!-- 面包屑导航 -->
-            <el-breadcrumb
-              separator="/"
-              class="mail-list-crumb"
-            >
+            <el-breadcrumb separator="/" class="mail-list-crumb">
               <el-breadcrumb-item
                 class="mail-list-crumb__item"
-                v-for="(crumb,index) in crumbs"
+                v-for="(crumb, index) in crumbs"
                 :key="index"
                 @click.native="popStack(crumb)"
-              >{{crumb.Name}}</el-breadcrumb-item>
+                >{{ crumb.Name }}</el-breadcrumb-item
+              >
             </el-breadcrumb>
           </div>
-          <div
-            class="mail-list-panel-bd"
-            v-loading="loading"
-          >
+          <div class="mail-list-panel-bd" v-loading="loading">
             <!-- 公司 -->
             <div
               class="list-cell"
@@ -106,7 +92,7 @@
               @click="reload(com)"
             >
               <i class="el-icon-folder list-cell__icon"></i>
-              <span>{{com.Name}} ({{com.TotalStaff}})</span>
+              <span>{{ com.Name }} ({{ com.TotalStaff }})</span>
             </div>
             <!-- 用户 -->
             <el-checkbox-group v-model="checkedIds">
@@ -122,13 +108,10 @@
                     class="list-cell__icon"
                     :src="user.Avatar"
                   ></el-avatar>
-                  <el-avatar
-                    v-else
-                    class="list-cell__icon"
-                  >
-                    {{user.Name.substr(-3)}}
-                  </el-avatar>
-                  <span>{{user.Name}}</span>
+                  <el-avatar v-else class="list-cell__icon">{{
+                    user.Name.substr(-3)
+                  }}</el-avatar>
+                  <span>{{ user.Name }}</span>
                 </div>
               </el-checkbox>
             </el-checkbox-group>
@@ -141,124 +124,127 @@
 </template>
 
 <script>
-import MailListMock from './MailList.json'
-import _ from 'lodash'
-import axios from 'axios'
+import axios from "axios";
 
 const mixin = {
-  data () {
+  data() {
     return {
       // 面包屑堆栈 /** vue.js 对 Set、Map 属性支持不友好 */
-      crumbStack: [],
-    }
+      crumbStack: []
+    };
   },
   methods: {
-    push (crumb = {}) {
+    push(crumb = {}) {
       // 入栈
       this.crumbStack.push(crumb);
     },
-    popStack (crumb = {}) {
-      console.log('pop', crumb);
+    popStack(crumb = {}) {
+      console.log("pop", crumb);
       // 出栈时 移除 crumb 及上层所有crumb。
       let stack = this.crumbStack;
       let index = stack.findIndex(item => item.ID === crumb.ID);
       let current = stack[index];
       if (index !== stack.length - 1) {
         // 语法 array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
-        stack.splice(index + 1)
-        this.current = current
+        stack.splice(index + 1);
+        this.current = current;
       }
     }
   }
-}
+};
 const searchMixin = {
-  data () {
+  data() {
     return {
       inputVisible: false,
       checkedSearchUserIds: [],
       results: []
-    }
+    };
   },
   watch: {
-    keyword (val) {
+    keyword(val) {
       this.querySearchAsync(val);
     }
   },
   methods: {
-    querySearchAsync (qs) {
+    querySearchAsync(qs) {
       this.showResult();
       // 远程获取数据
-      this.search(this.current.ID, qs).then(res => {
-        let results = res.data.Result;
-        // 调用 callback 返回建议列表的数据
-        console.log("results", results);
-        this.results = results;
-      }).catch(err => {
-        // 调用 callback 返回建议列表的数据
-      })
-
+      this.search(this.current.ID, qs)
+        .then(res => {
+          let results = res.data.Result;
+          // 调用 callback 返回建议列表的数据
+          console.log("results", results);
+          this.results = results;
+        })
+        .catch(err => {
+          // 调用 callback 返回建议列表的数据
+          console.log(err);
+        });
     },
-    showResult () {
+    showResult() {
       this.inputVisible = true;
     },
     // 处理选择搜索结果
-    handleSelect (item) {
+    handleSelect(item) {
       console.log(item);
     }
   }
-}
+};
 export default {
   name: "MailList",
   mixins: [mixin, searchMixin],
-  data () {
+  data() {
     return {
       loading: false,
-      keyword: '',
+      keyword: "",
       checkedSearchUserIds: [],
       model: [],
       current: {},
       data: [],
       checkedIds: [],
       users: []
-    }
+    };
   },
   watch: {
-    crumbStack (val) {
+    crumbStack(val) {
       console.log("crumb stack", val);
     }
   },
   computed: {
-    root () {
-      return this.data[0]
+    root() {
+      return this.data[0];
     },
-    crumbs () {
-      return this.crumbStack.map((val) => {
+    crumbs() {
+      return this.crumbStack.map(val => {
         return {
           ID: val.ID,
           Name: val.Name
-        }
+        };
       });
     },
-    checkedUsers () {
+    checkedUsers() {
       return this.checkedIds.map(id => {
         return this.users.find(u => u.ID === id);
       });
     }
   },
-  mounted () {
+  mounted() {
     this.fetchData();
   },
   methods: {
-    reload (data) {
-      this.push(data)
-      this.current = data
+    reload(data) {
+      this.push(data);
+      this.current = data;
       if (this.current.Users.length == 0) {
         this.fetchUser(this.current.ID);
       }
     },
-    fetchData () {
+    fetchData() {
       this.loading = true;
-      axios.get('/api/v2/organization_tree?userId=51d9cf3b-2312-e611-97bc-fa7d84a2e3a1')
+      axios
+        .get(
+          "/api/v2/organization_tree?userId=51d9cf3b-2312-e611-97bc-fa7d84a2e3a1"
+        )
         .then(res => {
           this.loading = false;
           let data = res.data.Result;
@@ -270,11 +256,17 @@ export default {
         .catch(err => {
           this.loading = false;
           console.log(err);
-        })
+        });
     },
-    fetchUser (orgId, keyword = "") {
+    fetchUser(orgId, keyword = "") {
       this.loading = true;
-      axios.get('/api/v2/organization_tree/users_search?orgGUID=' + orgId + '&keyword=' + keyword)
+      axios
+        .get(
+          "/api/v2/organization_tree/users_search?orgGUID=" +
+            orgId +
+            "&keyword=" +
+            keyword
+        )
         .then(res => {
           this.loading = false;
           let data = res.data.Result;
@@ -284,20 +276,24 @@ export default {
         .catch(err => {
           this.loading = false;
           console.log(err);
-        })
+        });
     },
-    search (orgId, keyword = "") {
-      return axios.get('/api/v2/organization_tree/users_search?orgGUID=' + orgId + '&keyword=' + keyword)
+    search(orgId, keyword = "") {
+      return axios.get(
+        "/api/v2/organization_tree/users_search?orgGUID=" +
+          orgId +
+          "&keyword=" +
+          keyword
+      );
     },
-    handleClose (id) {
+    handleClose(id) {
       let index = this.checkedIds.findIndex(cid => cid === id);
       if (index != -1) {
         this.checkedIds.splice(index, 1);
       }
     }
   }
-}
-
+};
 </script>
 
 <style lang="less">
@@ -306,13 +302,16 @@ export default {
   height: 600px;
   display: flex;
 }
+
 .mail-list-aside {
   flex: 1;
   border-right: 1px solid #eee;
 }
+
 .mail-list-main {
   flex: 1;
 }
+
 .mail-list-panel {
   display: flex;
   flex-direction: column;
@@ -320,19 +319,24 @@ export default {
   max-height: 100%;
   width: 100%;
 }
+
 .mail-list-panel_full {
   height: 100%;
 }
+
 .mail-list-panel-hd {
   padding: 16px;
 }
+
 .mail-list-panel-bd {
   flex: 1;
   overflow: auto;
 }
+
 .mail-list-panel-ft {
   padding: 24px 32px;
 }
+
 .list-cell {
   display: flex;
   align-items: center;
@@ -342,32 +346,36 @@ export default {
     background: #eee;
   }
 }
+
 .list-cell.el-checkbox {
   display: flex;
   align-items: center;
 }
+
 .user-info {
   display: flex;
   align-items: center;
 }
+
 .list-cell__icon {
   margin-right: 10px;
 }
-// .mail-list-crumb {
 
-// }
 .mail-list-crumb__item {
   .el-breadcrumb__inner {
     color: #303133;
+
     &:hover {
       color: #2f9aff;
       cursor: pointer;
     }
   }
+
   &:last-child {
     .el-breadcrumb__inner {
       font-weight: normal;
       color: #c0c4cc !important;
+
       &:hover {
         color: inherit;
         cursor: not-allowed !important;
@@ -375,24 +383,29 @@ export default {
     }
   }
 }
+
 .selected-user {
   display: flex;
   flex-wrap: wrap;
   padding: 16px;
 }
+
 .selected-user__item {
   margin-right: 8px;
   margin-bottom: 8px;
   cursor: pointer;
 }
+
 .name {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
 .addr {
   font-size: 12px;
   color: #b4b4b4;
 }
+
 .inline-input {
   width: 100%;
 }
