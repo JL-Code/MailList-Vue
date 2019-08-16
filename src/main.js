@@ -4,9 +4,10 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import DialogPlugin from "./plugin/dialog";
 
 Vue.use(ElementUI);
-
+Vue.use(DialogPlugin);
 Vue.config.productionTip = false;
 
 new Vue({

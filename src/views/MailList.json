@@ -1,0 +1,144 @@
+{
+    "Result": [
+        {
+            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAgCAYAAACPb1E+AAACxklEQVRYR+WYjU0cMRBGPyqADpIOQgfQQUgFSQfQAaQCkg6gApIKEioAKgAqACogesjfafB5veODABKWkNDteebN/+yt6XnOV0nfJG1L+iXpp6S/zyNaWnuCoA1JuwXuY0POlaQDSb8l3T5Bz0qQmwEu6j4tXsSjn8IDAI+KdwEfPiOe3ClwhNTnrgD8kBQBMGRPEmkQz0qpkIVE4WHQdl1CidJeKEkJ7uLdD+H+l+L1lFezkBTBVgFCwSpFAey+JMDJUyKTOqOQCCWszrFMQVBULjAAOeRvTJsu7CqQUaBhzxtagACu5bEXhTQb4QeYMH4u+RrbEgVGcfEZxfQqkFPhuihwGMChb5KXbwLyuHi2LrA3A/m9eKzl3f8KeSaJBp05LwpJuyDJ6W+t2TwF3IKkmJAT2w4dgWIiNYZbEEAkN63DfW1OTnxuyKyR9FrDNmd77JMta1GOpQjBcsYbHokLRG2AK7k2kopGDqMUjyIHnXXfRd+jggOSXDupQspsRiAKW1MFJQDXC0QNTH8EioJpeYmo2fD1cBlIxu+DbiAvA2C0NhPiKSVzRrZk11FazHcg78MNrHV+ZOYyHvVWHhVzFw+Sn5kd0pOIFFia7zWkFVkJrwGtueyqz7QlQofheKY+U0byvcVUmoKMwjyXuWS4WPXeLecKylEClrWPPE3N9wzkVG6iDA+5Er1zZnI5fmd2vo9CTr0uoHQUMj3fRyF7I28EsrcFLc33dwVJIf0ZWEJ6niTP2egfVTdVF9/keolfh9s/EMT+limcFiTtiJ3BSwg5S4N/mDj0OsZfbx5bcVwesLaGQzntZe5EyBrOPZLZvxiLFgg1SdvzKs39pgGH1Z7P9D7+7811IF0gcX3z50sLRm01sPxlPBLhajkZWN9pwvlh75UWC7G2BduDG4HtwmUg/R3Dkru9tWsuD6Nn62nVvfsPc+vYIb1H4iYAAAAASUVORK5CYII=",
+            "OrgType": 0,
+            "TotalStaff": 32,
+            "HierarchyCode": "zb",
+            "Users": [
+                {
+                    "ID": "4dea6e28-9921-e611-a3c2-f3cdf47e61a1",
+                    "Name": "系统管理员",
+                    "Avatar": null,
+                    "WorkAccount": null
+                },
+                {
+                    "ID": "08521f32-2212-e611-97bc-fa7d84a2e3a1",
+                    "Name": "黄伟",
+                    "Avatar": "http://p.qlogo.cn/bizmail/BfybZaoHEPx7vBFXUHe8HQtQBxiab6YiaTR8sp7RzKYfLlKywCPtPFzA/0",
+                    "WorkAccount": "tom@highzap.com"
+                },
+                {
+                    "ID": "0b057f78-2212-e611-97bc-fa7d84a2e3a1",
+                    "Name": "康芙瑛",
+                    "Avatar": "http://p.qlogo.cn/bizmail/Zouv2YXcd1Jw6WvRSx9kgUYK6oxQdLkzRAkacfdE8K1e4VxviczIgHQ/0",
+                    "WorkAccount": "kangfy@highzap.com"
+                },
+                {
+                    "ID": "b9a08692-2212-e611-97bc-fa7d84a2e3a1",
+                    "Name": "谷国斌",
+                    "Avatar": "http://p.qlogo.cn/bizmail/hQF3CZN8LvE3MEp5iafEU0RsQ5UMUne4ZvGZhZ1uEDXtSuPATRFbhEw/0",
+                    "WorkAccount": "gugb@highzap.com"
+                }
+            ],
+            "ID": "eab884b7-e9ec-4825-99da-4e93c2c76213",
+            "Name": "总部",
+            "Children": [
+                {
+                    "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAgCAYAAACPb1E+AAACxklEQVRYR+WYjU0cMRBGPyqADpIOQgfQQUgFSQfQAaQCkg6gApIKEioAKgAqACogesjfafB5veODABKWkNDteebN/+yt6XnOV0nfJG1L+iXpp6S/zyNaWnuCoA1JuwXuY0POlaQDSb8l3T5Bz0qQmwEu6j4tXsSjn8IDAI+KdwEfPiOe3ClwhNTnrgD8kBQBMGRPEmkQz0qpkIVE4WHQdl1CidJeKEkJ7uLdD+H+l+L1lFezkBTBVgFCwSpFAey+JMDJUyKTOqOQCCWszrFMQVBULjAAOeRvTJsu7CqQUaBhzxtagACu5bEXhTQb4QeYMH4u+RrbEgVGcfEZxfQqkFPhuihwGMChb5KXbwLyuHi2LrA3A/m9eKzl3f8KeSaJBp05LwpJuyDJ6W+t2TwF3IKkmJAT2w4dgWIiNYZbEEAkN63DfW1OTnxuyKyR9FrDNmd77JMta1GOpQjBcsYbHokLRG2AK7k2kopGDqMUjyIHnXXfRd+jggOSXDupQspsRiAKW1MFJQDXC0QNTH8EioJpeYmo2fD1cBlIxu+DbiAvA2C0NhPiKSVzRrZk11FazHcg78MNrHV+ZOYyHvVWHhVzFw+Sn5kd0pOIFFia7zWkFVkJrwGtueyqz7QlQofheKY+U0byvcVUmoKMwjyXuWS4WPXeLecKylEClrWPPE3N9wzkVG6iDA+5Er1zZnI5fmd2vo9CTr0uoHQUMj3fRyF7I28EsrcFLc33dwVJIf0ZWEJ6niTP2egfVTdVF9/keolfh9s/EMT+limcFiTtiJ3BSwg5S4N/mDj0OsZfbx5bcVwesLaGQzntZe5EyBrOPZLZvxiLFgg1SdvzKs39pgGH1Z7P9D7+7811IF0gcX3z50sLRm01sPxlPBLhajkZWN9pwvlh75UWC7G2BduDG4HtwmUg/R3Dkru9tWsuD6Nn62nVvfsPc+vYIb1H4iYAAAAASUVORK5CYII=",
+                    "OrgType": 0,
+                    "TotalStaff": 32,
+                    "HierarchyCode": "zb.hZRJGS",
+                    "Users": [],
+                    "ID": "932af126-db11-e611-97bc-fa7d84a2e3a1",
+                    "Name": "衡泽软件公司",
+                    "Children": [
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 3,
+                            "HierarchyCode": "zb.hZRJGS.ZHB",
+                            "Users": [],
+                            "ID": "12131634-2012-e611-97bc-fa7d84a2e3a1",
+                            "Name": "综合部",
+                            "Children": []
+                        },
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 5,
+                            "HierarchyCode": "zb.hZRJGS.cpb",
+                            "Users": [],
+                            "ID": "1d8bd66c-22ef-e711-b8c7-bb2ea85074b7",
+                            "Name": "产品部",
+                            "Children": []
+                        },
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 20,
+                            "HierarchyCode": "zb.hZRJGS.KFB",
+                            "Users": [],
+                            "ID": "991ce123-2012-e611-97bc-fa7d84a2e3a1",
+                            "Name": "开发部",
+                            "Children": []
+                        },
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 10,
+                            "HierarchyCode": "zb.hZRJGS.GWB",
+                            "Users": [],
+                            "ID": "8764b02d-2012-e611-97bc-fa7d84a2e3a1",
+                            "Name": "实施服务部",
+                            "Children": []
+                        },
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 2,
+                            "HierarchyCode": "zb.hZRJGS.XSB",
+                            "Users": [],
+                            "ID": "69fe243d-2012-e611-97bc-fa7d84a2e3a1",
+                            "Name": "销售部",
+                            "Children": []
+                        }
+                    ]
+                },
+                {
+                    "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAgCAYAAACPb1E+AAACxklEQVRYR+WYjU0cMRBGPyqADpIOQgfQQUgFSQfQAaQCkg6gApIKEioAKgAqACogesjfafB5veODABKWkNDteebN/+yt6XnOV0nfJG1L+iXpp6S/zyNaWnuCoA1JuwXuY0POlaQDSb8l3T5Bz0qQmwEu6j4tXsSjn8IDAI+KdwEfPiOe3ClwhNTnrgD8kBQBMGRPEmkQz0qpkIVE4WHQdl1CidJeKEkJ7uLdD+H+l+L1lFezkBTBVgFCwSpFAey+JMDJUyKTOqOQCCWszrFMQVBULjAAOeRvTJsu7CqQUaBhzxtagACu5bEXhTQb4QeYMH4u+RrbEgVGcfEZxfQqkFPhuihwGMChb5KXbwLyuHi2LrA3A/m9eKzl3f8KeSaJBp05LwpJuyDJ6W+t2TwF3IKkmJAT2w4dgWIiNYZbEEAkN63DfW1OTnxuyKyR9FrDNmd77JMta1GOpQjBcsYbHokLRG2AK7k2kopGDqMUjyIHnXXfRd+jggOSXDupQspsRiAKW1MFJQDXC0QNTH8EioJpeYmo2fD1cBlIxu+DbiAvA2C0NhPiKSVzRrZk11FazHcg78MNrHV+ZOYyHvVWHhVzFw+Sn5kd0pOIFFia7zWkFVkJrwGtueyqz7QlQofheKY+U0byvcVUmoKMwjyXuWS4WPXeLecKylEClrWPPE3N9wzkVG6iDA+5Er1zZnI5fmd2vo9CTr0uoHQUMj3fRyF7I28EsrcFLc33dwVJIf0ZWEJ6niTP2egfVTdVF9/keolfh9s/EMT+limcFiTtiJ3BSwg5S4N/mDj0OsZfbx5bcVwesLaGQzntZe5EyBrOPZLZvxiLFgg1SdvzKs39pgGH1Z7P9D7+7811IF0gcX3z50sLRm01sPxlPBLhajkZWN9pwvlh75UWC7G2BduDG4HtwmUg/R3Dkru9tWsuD6Nn62nVvfsPc+vYIb1H4iYAAAAASUVORK5CYII=",
+                    "OrgType": 0,
+                    "TotalStaff": 4,
+                    "HierarchyCode": "zb.HZZXGS",
+                    "Users": [],
+                    "ID": "6544709f-7229-e911-96e4-80fb0ce8aa74",
+                    "Name": "衡泽咨询公司",
+                    "Children": [
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 3,
+                            "HierarchyCode": "zb.HZZXGS.ZHB",
+                            "Users": [],
+                            "ID": "df791a90-7429-e911-96e4-80fb0ce8aa74",
+                            "Name": "综合部(咨询)",
+                            "Children": []
+                        },
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 1,
+                            "HierarchyCode": "zb.HZZXGS.YXB",
+                            "Users": [],
+                            "ID": "d922d79d-7429-e911-96e4-80fb0ce8aa74",
+                            "Name": "营销部(咨询)",
+                            "Children": []
+                        },
+                        {
+                            "Icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACF0lEQVRYR+2WgTEFQQyG/1cBHdABKkAFdEAHqIAOUAE6oAM6oAM6oALmu0lMLu5u927ezRszLzM7c2/fbvLnTzbJQiuWxYrtawqATUlHko4lfUp6kPQ81ZExADDohgER5V3So6RbSXxXSwnArqQT83Y7aX2SxN5O2n+VdG/MwNCgdAFAKZ6eSgJAlDdTjgFXzvlzA7mVzsMKizB1igOIcYXqKB+m5KaC3gMDjo6NoASwDqSVLwDg8J2kGNcvu4CnUxMMBj1vokOE6NAZBABJ49QRV5BieFlCiAACIM8XQsLv5hl+myWAePKMyuQKpOTSmQGB6RdJhKsFINNEzGGkmMk9APCcF4Sn+QUVAUSdHhLAlMSTmVeRXxDJDLP7NQx0GYIJDxGJFIUYe72I+yQzd1jcuZJ0ORVAVIwnhAgvMZ4rI0nmNSDeWxqALoaIK55iuC9vZgFwYUZrXs4sAEr9ZPYQrAGsGfj/DMR2XKr1Xf/XMEAzogQ3LdgmpN92TFukesUJZgyQIQCUaNowBciFsQ6bTbWMIxmHODxW+gC4Pu8TNCa6ZGvYyZehiot0tlrJOqAWun0GwDCNi/WnR/ShhyKA0LtL4jq4c53mALoiXvcONaUEQimU5XE7gtozw82IZcLwguFigyoBcIXQCiNDQDhLS+Zc9SRdCwDlJBNesfKLYdxin9c0SsYAcMUAwUtYIbZ8Tx7jfwDn3YwhB0a9FAAAAABJRU5ErkJggg==",
+                            "OrgType": 1,
+                            "TotalStaff": 1,
+                            "HierarchyCode": "zb.HZZXGS.GWB",
+                            "Users": [],
+                            "ID": "013cdbb0-7429-e911-96e4-80fb0ce8aa74",
+                            "Name": "咨询顾问部(咨询)",
+                            "Children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "ErrCode": 0,
+    "ErrMsg": "ok"
+}

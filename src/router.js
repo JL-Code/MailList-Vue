@@ -4,7 +4,7 @@ import Home from "./views/Home.vue";
 import Demo1 from "./views/Demo1.vue";
 import Demo2 from "./views/Demo2.vue";
 import Demo3 from "./views/Demo3.vue";
-import Demo4 from "./views/Demo4.vue";
+import MailList from "./views/MailList.vue";
 
 Vue.use(Router);
 
@@ -26,14 +26,14 @@ export default new Router({
       component: Demo2
     },
     {
+      path: "/maillist",
+      name: "MailList",
+      component: MailList
+    },
+    {
       path: "/Demo3",
       name: "Demo3",
       component: Demo3
-    },
-    {
-      path: "/Demo4",
-      name: "Demo4",
-      component: Demo4
     },
     {
       path: "/about",

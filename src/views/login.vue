@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     title="用户登录"
-    :visible.sync="visible"
+    :visible="visible"
     :before-close="handleClose"
   >
     <el-button @click="handleClose">登录</el-button>
@@ -11,13 +11,13 @@
 <script>
 export default {
   name: "Login",
-  data() {
+  data () {
     return {
       visible: true
     };
   },
   methods: {
-    handleClose() {
+    handleClose () {
       this.visible = false;
       this.$emit("close", "hi");
     }
