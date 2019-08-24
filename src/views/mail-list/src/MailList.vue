@@ -1,99 +1,92 @@
 <template>
-  <div style="background:#f7f7f7;height:100vh;width100vw;padding-top:20px;box-sizing:border-box">
-    <div class="mail-list-container">
-      <div class="mail-list-aside">
-        <div class="mail-list-panel mail-list-panel_full">
-          <div class="mail-list-panel-hd" style="padding-bottom:0">
-            <el-autocomplete
-              class="inline-input"
-              v-model="keyword"
-              :fetch-suggestions="querySearchAsync"
-              placeholder="请输入内容"
-              :trigger-on-focus="false"
-              @select="handleSelect"
-            >
-              <template slot-scope="{ item }">
-                <div class="user-info">
-                  <el-avatar v-if="item.Avatar" class="list-cell__icon" :src="item.Avatar"></el-avatar>
-                  <el-avatar v-else class="list-cell__icon">
-                    {{
-                    item.Name.substr(-3)
-                    }}
-                  </el-avatar>
-                  <span>{{ item.Name }}</span>
-                </div>
-              </template>
-            </el-autocomplete>
+  <div class="mail-list-container">
+    <div class="mail-list-aside">
+      <div class="mail-list-panel mail-list-panel_full">
+        <div class="mail-list-panel-hd" style="padding-bottom:0">
+          <el-autocomplete
+            class="inline-input"
+            v-model="keyword"
+            :fetch-suggestions="querySearchAsync"
+            :placeholder="placeholder"
+            :trigger-on-focus="false"
+            @select="handleSelect"
+          >
+            <template slot-scope="{ item }">
+              <div class="user-info">
+                <el-avatar v-if="item.Avatar" class="list-cell__icon" :src="item.Avatar"></el-avatar>
+                <el-avatar v-else class="list-cell__icon">
+                  {{
+                  item.Name.substr(-3)
+                  }}
+                </el-avatar>
+                <span>{{ item.Name }}</span>
+              </div>
+            </template>
+          </el-autocomplete>
+        </div>
+        <!-- 已选用户 -->
+        <div class="mail-list-panel-bd">
+          <div class="selected-user">
+            <el-tag
+              class="selected-user__item"
+              v-for="(user, index) in checkedUsers"
+              :key="index"
+              type="info"
+              effect="plain"
+              closable
+              disable-transitions
+              @click="handleClose(user.ID)"
+              @close="handleClose(user.ID)"
+            >{{ user.Name }}</el-tag>
           </div>
-          <!-- 已选用户 -->
-          <div class="mail-list-panel-bd">
-            <div class="selected-user">
-              <el-tag
-                class="selected-user__item"
-                v-for="(user, index) in checkedUsers"
-                :key="index"
-                type="info"
-                effect="plain"
-                closable
-                disable-transitions
-                @click="handleClose(user.ID)"
-                @close="handleClose(user.ID)"
-              >{{ user.Name }}</el-tag>
-            </div>
-          </div>
-          <div class="mail-list-panel-ft" style="text-align:left">
-            <el-button type="primary" size="medium">确定</el-button>
-            <el-button size="medium">取&nbsp;消</el-button>
-          </div>
+        </div>
+        <div class="mail-list-panel-ft" style="text-align:left">
+          <el-button type="primary" size="medium" @click="handleConfirm">确定</el-button>
+          <el-button size="medium" @click="handleCancel">取&nbsp;消</el-button>
         </div>
       </div>
-      <div class="mail-list-main">
-        <!-- 组织机构列表 -->
-        <div class="mail-list-panel">
-          <div class="mail-list-panel-hd">
-            <!-- 面包屑导航 -->
-            <el-breadcrumb separator="/" class="mail-list-crumb">
-              <el-breadcrumb-item
-                class="mail-list-crumb__item"
-                v-for="(crumb, index) in crumbs"
-                :key="index"
-                @click.native="popStack(crumb)"
-              >{{ crumb.Name }}</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
-          <div class="mail-list-panel-bd" v-loading="loading">
-            <!-- 公司 -->
-            <div
-              class="list-cell"
-              v-for="com in current.Children"
-              :key="com.ID"
-              @click="reload(com)"
-            >
-              <i class="el-icon-folder list-cell__icon"></i>
-              <span>{{ com.Name }} ({{ com.TotalStaff }})</span>
-            </div>
-            <!-- 用户 -->
-            <el-checkbox-group v-model="checkedIds">
-              <el-checkbox
-                class="list-cell"
-                v-for="user in current.Users"
-                :key="user.ID"
-                :label="user.ID"
-              >
-                <div class="user-info">
-                  <el-avatar v-if="user.Avatar" class="list-cell__icon" :src="user.Avatar"></el-avatar>
-                  <el-avatar v-else class="list-cell__icon">
-                    {{
-                    user.Name.substr(-3)
-                    }}
-                  </el-avatar>
-                  <span>{{ user.Name }}</span>
-                </div>
-              </el-checkbox>
-            </el-checkbox-group>
-          </div>
-          <!-- <div class="mail-list-panel-ft"></div> -->
+    </div>
+    <div class="mail-list-main">
+      <!-- 组织机构列表 -->
+      <div class="mail-list-panel">
+        <div class="mail-list-panel-hd">
+          <!-- 面包屑导航 -->
+          <el-breadcrumb separator="/" class="mail-list-crumb">
+            <el-breadcrumb-item
+              class="mail-list-crumb__item"
+              v-for="(crumb, index) in crumbs"
+              :key="index"
+              @click.native="popStack(crumb)"
+            >{{ crumb.Name }}</el-breadcrumb-item>
+          </el-breadcrumb>
         </div>
+        <div class="mail-list-panel-bd" v-loading="loading">
+          <!-- 公司 -->
+          <div class="list-cell" v-for="com in current.Children" :key="com.ID" @click="reload(com)">
+            <i class="el-icon-folder list-cell__icon"></i>
+            <span>{{ com.Name }} ({{ com.TotalStaff }})</span>
+          </div>
+          <!-- 用户 -->
+          <el-checkbox-group v-model="checkedIds">
+            <el-checkbox
+              class="list-cell"
+              v-for="user in current.Users"
+              :key="user.ID"
+              :label="user.ID"
+            >
+              <div class="user-info">
+                <el-avatar v-if="user.Avatar" class="list-cell__icon" :src="user.Avatar"></el-avatar>
+                <el-avatar v-else class="list-cell__icon">
+                  {{
+                  user.Name.substr(-3)
+                  }}
+                </el-avatar>
+                <span>{{ user.Name }}</span>
+              </div>
+            </el-checkbox>
+          </el-checkbox-group>
+        </div>
+        <!-- <div class="mail-list-panel-ft"></div> -->
       </div>
     </div>
   </div>
@@ -162,7 +155,6 @@ const searchMixin = {
     },
     // 处理选择搜索结果
     handleSelect(item) {
-      console.log(item);
       if (this.checkedIds.indexOf(item.ID) > -1) {
         this.$message({
           message: "请不要重复添加",
@@ -178,6 +170,12 @@ const searchMixin = {
 export default {
   name: "MailList",
   mixins: [mixin, searchMixin],
+  props: {
+    placeholder: {
+      type: String,
+      default: "请输入内容"
+    }
+  },
   data() {
     return {
       version: COMPONENT_VERSION,
@@ -289,6 +287,13 @@ export default {
       } else {
         console.warn(`未找到ID${id}的用户`);
       }
+    },
+    handleCancel() {
+      this.$emit("cancel", []);
+    },
+    handleConfirm() {
+      const users = this.checkedUsers.map(u => ({ id: u.ID, name: u.Name }));
+      this.$emit("submit", users);
     }
   }
 };
