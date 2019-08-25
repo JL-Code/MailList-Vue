@@ -9,7 +9,8 @@ export default function(component, options = {}) {
       destroyOnClose: false,
       top: "5vh",
       width: "50%",
-      showClose: true
+      showClose: true,
+      customClass: "mail-list-dialog"
     };
     defaults = Object.assign({}, defaults, options);
     const template = Vue.extend({

@@ -4,7 +4,7 @@ import Home from "./views/Home.vue";
 import Demo1 from "./views/Demo1.vue";
 import Demo2 from "./views/Demo2.vue";
 import Demo3 from "./views/Demo3.vue";
-import MailList from "./views/MailList.vue";
+import MailList from "./views/mail-list/example";
 
 Vue.use(Router);
 

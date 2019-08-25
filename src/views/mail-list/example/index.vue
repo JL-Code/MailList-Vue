@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import dialogAsync from "./mail-list/src/dialog-async";
-import MailList from "./mail-list";
+import dialogAsync from "../src/dialog-async";
+import MailList from "../index";
 export default {
   components: { MailList },
   methods: {

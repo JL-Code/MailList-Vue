@@ -4,7 +4,7 @@
       <div class="mail-list-panel mail-list-panel_full">
         <div class="mail-list-panel-hd" style="padding-bottom:0">
           <el-autocomplete
-            class="inline-input"
+            style="width:100%"
             v-model="keyword"
             :fetch-suggestions="querySearchAsync"
             :placeholder="placeholder"
@@ -12,7 +12,7 @@
             @select="handleSelect"
           >
             <template slot-scope="{ item }">
-              <div class="user-info">
+              <div class="mail-list-user" v-if="item">
                 <el-avatar v-if="item.Avatar" class="list-cell__icon" :src="item.Avatar"></el-avatar>
                 <el-avatar v-else class="list-cell__icon">
                   {{
@@ -29,15 +29,15 @@
           <div class="selected-user">
             <el-tag
               class="selected-user__item"
-              v-for="(user, index) in checkedUsers"
+              v-for="(item, index) in checkedItems"
               :key="index"
               type="info"
               effect="plain"
               closable
               disable-transitions
-              @click="handleClose(user.ID)"
-              @close="handleClose(user.ID)"
-            >{{ user.Name }}</el-tag>
+              @click="handleClose(item.id||item.ID)"
+              @close="handleClose(item.id||item.ID)"
+            >{{ item.name||item.Name }}</el-tag>
           </div>
         </div>
         <div class="mail-list-panel-ft" style="text-align:left">
@@ -62,25 +62,27 @@
         </div>
         <div class="mail-list-panel-bd" v-loading="loading">
           <!-- 公司 -->
-          <div class="list-cell" v-for="com in current.Children" :key="com.ID" @click="reload(com)">
-            <i class="el-icon-folder list-cell__icon"></i>
+          <div
+            class="mail-list-cell"
+            v-for="com in current.Children"
+            :key="com.ID"
+            @click="load(com)"
+          >
+            <img class="list-cell__icon" :src="com.Icon" v-if="com.Icon" />
+            <i class="el-icon-folder list-cell__icon" v-else></i>
             <span>{{ com.Name }} ({{ com.TotalStaff }})</span>
           </div>
           <!-- 用户 -->
           <el-checkbox-group v-model="checkedIds">
             <el-checkbox
-              class="list-cell"
+              class="mail-list-cell"
               v-for="user in current.Users"
               :key="user.ID"
               :label="user.ID"
             >
-              <div class="user-info">
+              <div class="mail-list-user">
                 <el-avatar v-if="user.Avatar" class="list-cell__icon" :src="user.Avatar"></el-avatar>
-                <el-avatar v-else class="list-cell__icon">
-                  {{
-                  user.Name.substr(-3)
-                  }}
-                </el-avatar>
+                <el-avatar v-else class="list-cell__icon">{{user.Name.substr(-3)}}</el-avatar>
                 <span>{{ user.Name }}</span>
               </div>
             </el-checkbox>
@@ -94,6 +96,7 @@
 
 <script>
 import axios from "axios";
+import { difference, unionWith, cloneDeep } from "lodash";
 const COMPONENT_VERSION = "0.0.1";
 const mixin = {
   data() {
@@ -102,8 +105,18 @@ const mixin = {
       crumbStack: []
     };
   },
+  computed: {
+    crumbs() {
+      return this.crumbStack.map(val => {
+        return {
+          ID: val.ID,
+          Name: val.Name
+        };
+      });
+    }
+  },
   methods: {
-    push(crumb = {}) {
+    pushStack(crumb = {}) {
       // 入栈
       this.crumbStack.push(crumb);
     },
@@ -126,7 +139,8 @@ const searchMixin = {
     return {
       keyword: "",
       inputVisible: false,
-      results: []
+      // 搜索结果
+      searchResults: []
     };
   },
   watch: {
@@ -140,10 +154,10 @@ const searchMixin = {
       // 远程获取数据
       this.search(this.current.ID, qs)
         .then(res => {
-          let results = res.data.Result;
+          let searchResults = res.data.Result;
           // 调用 callback 返回建议列表的数据
-          this.results = results;
-          callback(results);
+          this.searchResults = searchResults;
+          callback(searchResults);
         })
         .catch(err => {
           // 调用 callback 返回建议列表的数据
@@ -171,42 +185,68 @@ export default {
   name: "MailList",
   mixins: [mixin, searchMixin],
   props: {
+    userId: {
+      type: String,
+      required: true
+    },
     placeholder: {
       type: String,
       default: "请输入内容"
+    },
+    value: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       version: COMPONENT_VERSION,
       loading: false,
-      current: {},
+      innerValue: cloneDeep(this.value),
+      // 数据源
       data: [],
+      // 当前选中的组织
+      current: {},
+      // 当前选中的用户ID
       checkedIds: [],
-      users: [],
-      inputWidth: 0
+      // 当前已加载的用户
+      loadedUsers: [],
+      // 脏数据
+      ditry: []
     };
   },
   watch: {
-    crumbStack(val) {
-      console.log("crumb stack", val);
+    checkedIds(newVal, oldVal) {
+      // 集合差集
+      if (newVal.length < oldVal.length) {
+        let diff = difference(oldVal, newVal);
+        this.remove(diff);
+      }
     }
   },
   computed: {
     root() {
       return this.data[0];
     },
-    crumbs() {
-      return this.crumbStack.map(val => {
-        return {
-          ID: val.ID,
-          Name: val.Name
-        };
-      });
+    /**
+     *
+     */
+    activeItems() {
+      let filters = this.loadedUsers.filter(
+        u => this.checkedIds.indexOf(u.ID) > -1
+      );
+      return filters.map(f => ({ id: f.ID, name: f.Name }));
     },
-    checkedUsers() {
-      return this.checkedIds.map(id => {
-        return this.users.find(u => u.ID === id);
+    /**
+     * 选中数据
+     */
+    checkedItems() {
+      // innerValue 、activeItems 并集(连集 union)
+      return unionWith(this.activeItems, this.innerValue, function(
+        first,
+        last
+      ) {
+        return first.id === last.id;
       });
     }
   },
@@ -214,32 +254,46 @@ export default {
     this.fetchData();
   },
   methods: {
-    reload(data) {
-      this.push(data);
+    setValues() {
+      // 带值重入
+      this.checkedIds.push(...this.innerValue.map(v => v.id));
+    },
+    /**
+     * @description 加载指定组织的用户数据
+     */
+    load(data) {
+      // 面包屑导航入栈
+      this.pushStack(data);
       this.current = data;
       if (this.current.Users.length == 0) {
         this.fetchUser(this.current.ID);
       }
     },
+    /**
+     * @description 加载组织架构
+     */
     fetchData() {
       this.loading = true;
       axios
-        .get(
-          "/api/v2/organization_tree?userId=51d9cf3b-2312-e611-97bc-fa7d84a2e3a1"
-        )
+        .get("/api/v2/organization_tree?userId=" + this.userId)
         .then(res => {
           this.loading = false;
           let data = res.data.Result;
           this.data = data;
           this.current = this.data[0];
-          this.users.push(...this.current.Users);
+          this.loadedUsers.push(...this.current.Users);
           this.crumbStack.push(this.current);
+          //
+          this.setValues();
         })
         .catch(err => {
           this.loading = false;
           console.log(err);
         });
     },
+    /**
+     * @description 加载用户数据
+     */
     fetchUser(orgId, keyword = "") {
       this.loading = true;
       let params = { orgGUID: orgId };
@@ -254,7 +308,7 @@ export default {
           if (data.ErrCode === 0) {
             let result = data.Result;
             this.current.Users = result;
-            this.users.push(...result);
+            this.loadedUsers.push(...result);
           } else {
             this.$message.error(data.ErrMsg || "查询数据失败!");
           }
@@ -280,26 +334,40 @@ export default {
      * 移除选中用户
      */
     handleClose(id) {
-      console.log("remove click");
       let index = this.checkedIds.findIndex(cid => cid === id);
       if (index != -1) {
         this.checkedIds.splice(index, 1);
-      } else {
-        console.warn(`未找到ID${id}的用户`);
       }
+      this.remove(id);
     },
     handleCancel() {
       this.$emit("cancel", []);
     },
     handleConfirm() {
-      const users = this.checkedUsers.map(u => ({ id: u.ID, name: u.Name }));
-      this.$emit("submit", users);
+      // TODO: checkeUsers 改为 innerValue
+      const data = cloneDeep(this.checkedItems);
+      this.$emit("submit", data);
+    },
+    remove(data = []) {
+      let removed = this.innerValue.filter(v => data.indexOf(v.id) > -1);
+      if (removed.length) {
+        removed.forEach(r => {
+          let index = this.innerValue.findIndex(v => v.id === r.id);
+          this.innerValue.splice(index, 1);
+        });
+        this.ditry.push(...removed);
+      }
     }
   }
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+.mail-list-dialog {
+  .el-dialog__body {
+    padding: 0 20px;
+  }
+}
 .mail-list-container {
   background: #fff;
   height: 600px;
@@ -340,30 +408,34 @@ export default {
   padding: 24px 32px;
 }
 
-.list-cell {
+.mail-list-cell {
   display: flex;
   align-items: center;
-  min-height: 46px;
+  min-height: 32px;
   padding: 8px 16px;
   &:hover {
     background: #eee;
   }
 }
 
-.list-cell.el-checkbox {
+.mail-list-cell.el-checkbox {
   display: flex;
   align-items: center;
 }
 
-.user-info {
+.mail-list-user {
   display: flex;
   align-items: center;
 }
-
 .list-cell__icon {
   margin-right: 10px;
 }
-
+img.list-cell__icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  color: #606266;
+}
 .mail-list-crumb__item {
   .el-breadcrumb__inner {
     color: #303133;
@@ -385,6 +457,9 @@ export default {
       }
     }
   }
+  .el-breadcrumb__separator {
+    margin: 0 4px;
+  }
 }
 
 .selected-user {
@@ -399,15 +474,8 @@ export default {
   cursor: pointer;
 }
 
-.name {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.inline-input {
-  width: 100%;
-}
 .el-autocomplete-suggestion__list {
-  .user-info {
+  .mail-list-user {
     padding: 10px 0;
   }
 }
