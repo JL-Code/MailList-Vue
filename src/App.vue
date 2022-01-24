@@ -26,7 +26,6 @@
   import login from "./views/login";
   import detail from "./views/detail";
   import detail2 from "./views/detail2";
-  import componentAsync from "./components/component-async";
   import dialogAsync from "./components/dialog-async";
   export default {
     name: "App",
